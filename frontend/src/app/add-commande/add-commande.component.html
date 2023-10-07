@@ -1,0 +1,71 @@
+<div class="container mt-5">
+    <div *ngIf="errormsg" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{errormsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{successmsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  
+    <form [formGroup]="commandeForm">
+      <div class="row">
+        <div class="col-lg-4 mt-2">
+          <select id="idUser" class="form-control" formControlName="idUser">
+            <option value="">Choose Admin</option>
+            <option *ngFor="let admin of admins" [value]="admin.id">{{ admin.nom }}</option>
+          </select>
+        </div>
+        <div class="col-lg-4 mt-2">
+          <select id="idetat" class="form-control" formControlName="idEtat">
+            <option value="">Choose Etat</option>
+            <option *ngFor="let etat of commandeetats" [value]="etat.id">{{ etat.etat }}</option>
+          </select>
+        </div>
+        
+        <div class="col">
+        &nbsp;
+        &nbsp;
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Categorie</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Qté Stock</th>
+                    <th scope="col">Prix</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor='let prd of readData'>
+                    <th scope="row">{{prd.id}}</th>
+                    <td>{{prd.user?.nom}}</td>
+                    <td>{{prd.categorie?.nom}}</td>
+                    <td>{{prd.nom}}</td>
+                    <td>{{prd.description}}</td>
+                    <td>{{prd.qteStock}}</td>
+                    <td>{{prd.prix}} $</td>
+                    <td>
+                        <div class="input-group">
+                          <button class="btn btn-outline-primary" type="button" (click)="decrementQuantity(prd)">-</button>
+                          <input type="number" class="form-control" [(ngModel)]="prd.quantity" [ngModelOptions]="{standalone: true}">
+                          <button class="btn btn-outline-primary" type="button" (click)="incrementQuantity(prd)">+</button>
+                        </div>
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+      </div>
+  
+      <div class="row mt-3">
+        <div class="col-lg-4">
+          <button *ngIf="!getparamid" class="btn btn-primary btn-block" (click)="commandeSubmit()">Create</button>
+          <button *ngIf="getparamid" class="btn btn-dark btn-block" (click)="commandeUpdate()">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

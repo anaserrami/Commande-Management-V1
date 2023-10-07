@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <div *ngIf="errormsg" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>{{errormsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{successmsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  
+    <form [formGroup]="fournisseurForm">
+      <div class="col">
+        <div class="col-lg-4 mt-2">
+          <input type="text" class="form-control custom-input" formControlName="nom" placeholder="Enter supplier Full Name">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <input type="text" class="form-control custom-input" formControlName="email" placeholder="Enter supplier Email">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <input type="text" class="form-control custom-input" formControlName="tele" placeholder="Enter supplier Mobile">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <input type="text" class="form-control custom-input" formControlName="description" placeholder="Enter Supplier Description">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <select id="idUser" class="form-control" formControlName="idUser">
+            <option value="">Choose Admin</option>
+            <option *ngFor="let admin of admins" [value]="admin.id">{{ admin.nom }}</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="row mt-3">
+        <div class="col-lg-4">
+          <button *ngIf="!getparamid" class="btn btn-primary btn-block" (click)="fournisseurSubmit()">Create</button>
+          <button *ngIf="getparamid" class="btn btn-dark btn-block" (click)="fournisseurUpdate()">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

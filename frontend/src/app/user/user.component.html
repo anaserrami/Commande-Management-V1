@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    
+    <div class="d-flex justify-content-end mb-3">
+      <a class="btn btn-primary" [routerLink]="['/add-user']">Add</a>
+    </div>
+
+    <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>{{successmsg}}</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div> 
+  
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Role</th>
+            <th scope="col">Pays</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Tele</th>
+            <th scope="col">Usage</th>
+            <th scope="col">Edits</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor='let us of readData'>
+            <th scope="row">{{us.id}}</th>
+            <td>{{us.role?.nom}}</td>
+            <td>{{us.pays?.nom}}</td>
+            <td>{{us.nom}}</td>
+            <td>{{us.tele}}</td>
+            <td>{{us.utilisation}} %</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="deleteUserID(us.id)">Delete</button>
+              &nbsp;
+              <a [routerLink]="['/add-user', us.id]" class="btn btn-sm btn-success">Update</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>
