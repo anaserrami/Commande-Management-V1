@@ -14,10 +14,9 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Role</th>
-            <th scope="col">Pays</th>
             <th scope="col">Nom</th>
             <th scope="col">Tele</th>
-            <th scope="col">Usage</th>
+            <th scope="col">Email</th>
             <th scope="col">Edits</th>
           </tr>
         </thead>
@@ -25,10 +24,9 @@
           <tr *ngFor='let us of readData'>
             <th scope="row">{{us.id}}</th>
             <td>{{us.role?.nom}}</td>
-            <td>{{us.pays?.nom}}</td>
             <td>{{us.nom}}</td>
             <td>{{us.tele}}</td>
-            <td>{{us.utilisation}} %</td>
+            <td>{{us.email}}</td>
             <td>
               <button class="btn btn-sm btn-danger" (click)="deleteUserID(us.id)">Delete</button>
               &nbsp;

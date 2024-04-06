@@ -35,14 +35,6 @@ export class UserComponent implements OnInit {
           user.role = roleRes.data[0];
         });
       });
-
-      // Fetch the country for each user
-      this.readData.forEach((user: any) => {
-        this.service.getSingleDataPays(user.idPays).subscribe((paysRes) => {
-          console.log(paysRes, 'paysRes ==>');
-          user.pays = paysRes.data[0];
-        });
-      });
     });
   }
 }

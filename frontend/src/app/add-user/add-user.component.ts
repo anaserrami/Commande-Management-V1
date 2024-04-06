@@ -14,7 +14,6 @@ export class AddUserComponent implements OnInit {
   errormsg:any;
   successmsg:any;
   getparamid:any;
-  pays: any[] = []; // Store the list of country
   roles: any[] = []; // Store the list of country
 
   ngOnInit(): void {
@@ -28,20 +27,17 @@ export class AddUserComponent implements OnInit {
         if (roleName) {
           this.userForm.patchValue({
             idRole: res.data[0].idRole,
-            idPays: res.data[0].idPays,
             nom: res.data[0].nom,
             tele: res.data[0].tele,
-            utilisation: res.data[0].utilisation
+            email: res.data[0].email,
+            password: res.data[0].password
           });
         } else {
           this.errormsg = 'Invalid role assigned to user';
         }
       });
     }
-    // Fetch the list of country
-    this.service.getAllDataPays().subscribe((res) => {
-      this.pays = res.data;
-    });
+    
     // Fetch the list of roles
     this.service.getAllDataRole().subscribe((res) => {
       this.roles = res.data;
@@ -50,10 +46,10 @@ export class AddUserComponent implements OnInit {
 
   userForm = new FormGroup({
     idRole: new FormControl('', Validators.required),
-    idPays: new FormControl('', Validators.required),
     nom: new FormControl('', Validators.required),
     tele: new FormControl('', Validators.required),
-    utilisation: new FormControl('', Validators.required)
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
   });
 
   userSubmit() {

@@ -17,20 +17,17 @@
           <input type="text" class="form-control rounded" formControlName="tele" placeholder="Enter Your Mobile">
         </div>
         <div class="col-lg-4 mt-2">
-          <input type="text" class="form-control rounded" formControlName="utilisation" placeholder="Enter Your Usage">
+          <input type="email" class="form-control rounded" formControlName="email" placeholder="Enter Your Email">
+        </div>
+        <div class="col-lg-4 mt-2">
+          <input type="password" class="form-control rounded" formControlName="password" placeholder="Enter Your Password">
         </div>
         <div class="col-md-4 mt-2">
           <select id="role" class="form-select rounded" formControlName="idRole">
             <option value="">Choose a Role</option>
             <option *ngFor="let role of roles" [value]="role.id">{{ role.nom }}</option>
           </select>
-        </div>    
-        <div class="col-md-4 mt-2">
-          <select id="pays" class="form-select rounded" formControlName="idPays">
-            <option value="">Choose a Pays</option>
-            <option *ngFor="let pay of pays" [value]="pay.id">{{ pay.nom }}</option>
-          </select>
-        </div>    
+        </div>
       </div>
   
       <div class="row mt-3">

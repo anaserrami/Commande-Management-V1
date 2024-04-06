@@ -22,8 +22,6 @@ import { AddCategorieComponent } from './add-categorie/add-categorie.component';
 import { AddLivraisonComponent } from './add-livraison/add-livraison.component';
 import { AddRoleComponent } from './add-role/add-role.component';
 import { AddCommandeetatComponent } from './add-commandeetat/add-commandeetat.component';
-import { PaysComponent } from './pays/pays.component';
-import { AddPaysComponent } from './add-pays/add-pays.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { ApiserviceService } from './apiservice.service';
@@ -48,9 +46,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AddCategorieComponent,
     AddLivraisonComponent,
     AddRoleComponent,
-    AddCommandeetatComponent,
-    PaysComponent,
-    AddPaysComponent
+    AddCommandeetatComponent
   ],
   imports: [
     BrowserModule,

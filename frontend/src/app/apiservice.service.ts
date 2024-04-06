@@ -36,22 +36,6 @@ export class ApiserviceService {
     return this._http.get(`${this.apiUrlRole}/${ids}`);
   }
 
-  //-----------------PAYS---------------------------
-  getAllDataPays():Observable<any> { return this._http.get(`${this.apiUrlPays}`); }
-  createDataPays(data:any):Observable<any> { return this._http.post(`${this.apiUrlPays}`, data); }
-  updateDataPays(id: any, data: any): Observable<any> {
-    let url = `${this.apiUrlPays}/${id}`;
-    return this._http.put(url, data);
-  }
-  deleteDataPays(id:any):Observable<any> { 
-    let ids = id;
-    return this._http.delete(`${this.apiUrlPays}/${ids}`);
-  }
-  getSingleDataPays(id:any):Observable<any> {
-    let ids = id;
-    return this._http.get(`${this.apiUrlPays}/${ids}`);
-  }
-
   //-----------------COMMANDE ETAT----------------------------
   getAllDataCommandeEtat():Observable<any> { return this._http.get(`${this.apiUrlCommandeEtat}`); }
   createDataCommandeEtat(data:any):Observable<any> { return this._http.post(`${this.apiUrlCommandeEtat}`, data); }

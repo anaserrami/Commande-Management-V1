@@ -17,8 +17,6 @@ import { CommandeetatComponent } from './commandeetat/commandeetat.component';
 import { AddCommandeetatComponent } from './add-commandeetat/add-commandeetat.component';
 import { RoleComponent } from './role/role.component';
 import { AddRoleComponent } from './add-role/add-role.component';
-import { PaysComponent } from './pays/pays.component';
-import { AddPaysComponent } from './add-pays/add-pays.component';
 import { LignedecommandeComponent } from './lignedecommande/lignedecommande.component';
 
 const routes: Routes = [
@@ -46,9 +44,6 @@ const routes: Routes = [
   { path: 'add-role', component: AddRoleComponent },
   { path: 'add-role/:id', component: AddRoleComponent },
   { path: 'role', component: RoleComponent },
-  { path: 'add-pays', component: AddPaysComponent },
-  { path: 'add-pays/:id', component: AddPaysComponent },
-  { path: 'pays', component: PaysComponent },
   { path: 'lignedecommande', component: LignedecommandeComponent },
   { path: 'lignedecommande/:idProduit/:idCommande', component: LignedecommandeComponent }
 ];
